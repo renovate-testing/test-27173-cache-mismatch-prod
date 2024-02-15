@@ -3,8 +3,13 @@
   "extends": [
     "config:recommended"
   ],
-  "packageRules": [{
-    "matchPackageNames": ["lscr.io/linuxserver/radarr"],
-    "versioning": "loose"
-  }]
+  "packageRules": [
+      {
+        "matchDatasources": ["docker"],
+        "matchPackagePrefixes": [
+          "lscr.io/linuxserver/"
+        ],
+        "versioning": "regex:^v?(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)[.-]?(?<build>\\w*)?-?(?<commit>\\w{0,9})?-ls(?<revision>\\d+)-?(?<compatibility>\\w?)$"
+      }
+    ]
 }
